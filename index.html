@@ -30,7 +30,7 @@
         p.subtitle { text-align: center; font-size: 14px; color: #ddd; margin-bottom: 25px; }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-size: 14px; color: #eee; }
-        input[type="text"], textarea, input[type="file"] {
+        input[type="text"], textarea {
             width: 100%;
             padding: 12px;
             background: rgba(255, 255, 255, 0.07);
@@ -40,12 +40,8 @@
             font-size: 15px;
             outline: none;
         }
-        input[type="file"] {
-            padding: 8px;
-            cursor: pointer;
-        }
         input:focus, textarea:focus { border-color: #00d2ff; background: rgba(255, 255, 255, 0.12); }
-        textarea { resize: none; height: 100px; }
+        textarea { resize: none; height: 120px; }
         button {
             width: 100%;
             padding: 12px;
@@ -56,6 +52,7 @@
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
+            transition: opacity 0.3s;
         }
         button:hover { opacity: 0.9; }
     </style>
@@ -64,24 +61,19 @@
 
     <div class="container">
         <h2>صارحني</h2>
-        <p class="subtitle">أرسل رسالة سرية أو صورة بدون أن نعرف من هو المرسل</p>
+        <p class="subtitle">أرسل رسالة سرية بدون أن نعرف من هو المرسل</p>
 
-        <!-- الإرسال المباشر بدون تعقيد الجافاسكريبت -->
-        <form action="https://formspree.io/f/xljeazzv" method="POST" enctype="multipart/form-data">
+        <!-- تم ربطه بالرابط الخاص بك وبدون خاصية رفع الملفات -->
+        <form action="https://formspree.io/f/xljeazzv" method="POST">
             
             <div class="form-group">
-                <label for="name">الاسم أو اللقب (اختياري):</label>
+                <label for="name">الاسم أو اللقب (اختياري، اتركه فارغاً ليكون مجهولاً):</label>
                 <input type="text" id="name" name="name" placeholder="فاعل خير، صديق...">
             </div>
 
             <div class="form-group">
                 <label for="message">نص الرسالة:</label>
-                <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="attachment">إرفاق صورة أو ملف (اختياري):</label>
-                <input type="file" id="attachment" name="upload" accept="image/*">
+                <textarea id="message" name="message" placeholder="اكتب رسالتك هنا بكل بحرية..." required></textarea>
             </div>
 
             <button type="submit">إرسال سري</button>
